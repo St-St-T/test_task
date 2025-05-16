@@ -1,0 +1,164 @@
+2025-May-16 10:07:44 Наличие необходимых модулей php (check_php_modules): Ok
+Все необходимые модули установлены
+2025-May-16 10:07:44 Обязательные параметры PHP (check_php_settings): Ok
+Настройки правильные
+2025-May-16 10:07:44 Модули веб-сервера (check_security): Ok
+Конфликтов не выявлено
+2025-May-16 10:07:44 Значения переменных сервера (check_server_vars): Fail
+Ошибка! Текущий домен не валидный (task). Может содержать только цифры, латинские буквы и дефис. Должен содержать точку.
+2025-May-16 10:07:45 Сохранение сессии (check_session): Ok
+50% done
+2025-May-16 10:07:45 Сохранение сессии (check_session): Ok
+Успешно
+2025-May-16 10:07:45 Параметры настройки UTF (mbstring и константа BX_UTF) (check_mbstring): Ok
+Правильные. Сайт работает в UTF кодировке
+2025-May-16 10:07:45 Служебные скрипты в корне сайта (check_install_scripts): Ok
+Отсутствуют
+2025-May-16 10:07:45 Работа с сокетами (check_socket): Ok
+Connection to ssl://task:443	Success
+
+Успешно
+2025-May-16 10:07:45 Выполнение агентов на cron (check_bx_crontab): Warning
+Замечание. Агенты выполняются на хитах, рекомендуется перевести выполнение агентов на cron
+2025-May-16 10:07:46 Лишний вывод в файлах конфигурации (check_dbconn): Ok
+Connection to ssl://task:443	Success
+
+Успешно
+2025-May-16 10:07:46 Сохранение сессии без UserAgent (check_session_ua): Ok
+50% done
+Connection to ssl://task:443	Success
+
+2025-May-16 10:07:47 Сохранение сессии без UserAgent (check_session_ua): Ok
+Connection to ssl://task:443	Success
+
+Успешно
+2025-May-16 10:07:47 Настройки сайтов (check_sites): Ok
+Правильные
+2025-May-16 10:07:47 Размер стека и pcre.recursion_limit (check_pcre_recursion): Ok
+Connection to ssl://task:443	Success
+
+Успешно
+2025-May-16 10:07:47 Загрузка файла (check_upload): Ok
+Connection to ssl://task:443	Success
+
+Успешно
+2025-May-16 10:07:47 Загрузка файла больше 4Мб (check_upload_big): Ok
+Connection to ssl://task:443	Success
+
+Успешно
+2025-May-16 10:07:48 Загрузка файла через php://input (check_upload_raw): Ok
+Connection to ssl://task:443	Success
+
+Успешно
+2025-May-16 10:07:48 Передача POST запроса с большим числом параметров (check_post): Ok
+Connection to ssl://task:443	Success
+
+Успешно
+2025-May-16 10:07:48 Отправка почты (check_mail): Fail
+Ошибка! Не работает
+2025-May-16 10:07:48 Отправка почтового сообщения больше 64Кб (check_mail_big): Fail
+Ошибка! Не работает
+2025-May-16 10:07:49 Проверка на наличие неотправленных сообщений (check_mail_b_event): Ok
+Успешно
+2025-May-16 10:07:49 Внутреннее перенаправление (функция LocalRedirect) (check_localredirect): Ok
+50% done
+Connection to ssl://task:443	Success
+
+2025-May-16 10:07:49 Внутреннее перенаправление (функция LocalRedirect) (check_localredirect): Ok
+Connection to ssl://task:443	Success
+
+Успешно
+2025-May-16 10:07:49 Фактическое ограничение памяти (check_memory_limit): Ok
+20% done
+Connection to ssl://task:443	Success
+
+2025-May-16 10:07:50 Фактическое ограничение памяти (check_memory_limit): Ok
+40% done
+Connection to ssl://task:443	Success
+
+2025-May-16 10:07:50 Фактическое ограничение памяти (check_memory_limit): Ok
+60% done
+Connection to ssl://task:443	Success
+
+2025-May-16 10:07:50 Фактическое ограничение памяти (check_memory_limit): Ok
+80% done
+Connection to ssl://task:443	Success
+
+2025-May-16 10:07:51 Фактическое ограничение памяти (check_memory_limit): Ok
+Connection to ssl://task:443	Success
+
+Не менее 256 М
+2025-May-16 10:07:51 Работа с файлами кеша (check_cache): Ok
+Успешно
+2025-May-16 10:07:51 Доступ к серверу обновлений (check_update): Ok
+Успешно
+2025-May-16 10:07:51 HTTP авторизация (check_http_auth): Ok
+Connection to ssl://task:443	Success
+
+Успешно
+2025-May-16 10:07:51 Создание и запуск файла (check_exec): Ok
+Connection to ssl://task:443	Success
+
+Успешно
+2025-May-16 10:07:52 Функция getimagesize для swf (check_getimagesize): Ok
+Успешно
+2025-May-16 10:07:52 Версия MySQL-сервера (check_mysql_bug_version): Ok
+Успешно
+2025-May-16 10:07:53 Время на БД и веб-сервере (check_mysql_time): Ok
+Успешно
+2025-May-16 10:07:53 Режим работы MySQL (check_mysql_mode): Fail
+Ошибка! innodb_strict_mode=ON, требуется OFF
+2025-May-16 10:07:53 Кодировка соединения (check_mysql_connection_charset): Ok
+character_set_connection=utf8mb4, collation_connection=utf8mb4_0900_ai_ci, character_set_results=utf8mb4
+Успешно
+2025-May-16 10:07:53 Кодировка базы данных (check_mysql_db_charset): Ok
+CHARSET=utf8mb4, COLLATION=utf8mb4_0900_ai_ci
+Успешно
+2025-May-16 10:07:53 Формат хранения таблиц в БД (check_mysql_table_format): Ok
+Успешно
+2025-May-16 10:07:54 Кодировки таблиц в БД (check_mysql_table_charset): Ok
+Успешно
+2025-May-16 10:07:54 Структура базы данных (check_mysql_table_structure): Ok
+0% done
+2025-May-16 10:07:54 Структура базы данных (check_mysql_table_structure): Ok
+4% done
+2025-May-16 10:07:55 Структура базы данных (check_mysql_table_structure): Ok
+8% done
+2025-May-16 10:07:55 Структура базы данных (check_mysql_table_structure): Ok
+12% done
+2025-May-16 10:07:56 Структура базы данных (check_mysql_table_structure): Ok
+16% done
+2025-May-16 10:07:57 Структура базы данных (check_mysql_table_structure): Ok
+20% done
+2025-May-16 10:07:58 Структура базы данных (check_mysql_table_structure): Ok
+24% done
+2025-May-16 10:07:58 Структура базы данных (check_mysql_table_structure): Ok
+28% done
+2025-May-16 10:08:00 Структура базы данных (check_mysql_table_structure): Ok
+32% done
+2025-May-16 10:08:02 Структура базы данных (check_mysql_table_structure): Ok
+36% done
+2025-May-16 10:08:02 Структура базы данных (check_mysql_table_structure): Ok
+40% done
+2025-May-16 10:08:08 Структура базы данных (check_mysql_table_structure): Ok
+44% done
+2025-May-16 10:08:09 Структура базы данных (check_mysql_table_structure): Ok
+48% done
+2025-May-16 10:08:09 Структура базы данных (check_mysql_table_structure): Ok
+52% done
+2025-May-16 10:08:09 Структура базы данных (check_mysql_table_structure): Ok
+56% done
+2025-May-16 10:08:10 Структура базы данных (check_mysql_table_structure): Ok
+60% done
+2025-May-16 10:08:11 Структура базы данных (check_mysql_table_structure): Ok
+64% done
+2025-May-16 10:08:11 Структура базы данных (check_mysql_table_structure): Ok
+68% done
+2025-May-16 10:08:12 Структура базы данных (check_mysql_table_structure): Ok
+72% done
+2025-May-16 10:08:13 Структура базы данных (check_mysql_table_structure): Ok
+76% done
+2025-May-16 10:08:14 Структура базы данных (check_mysql_table_structure): Ok
+80% done
+2025-May-16 10:08:14 Структура базы данных (check_mysql_table_structure): Ok
+84% done
