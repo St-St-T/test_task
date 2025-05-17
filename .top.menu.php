@@ -1,15 +1,8 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Главная", 
-		"/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Новости", 
-		"/task-news/", 
+		"Пресс-центр", 
+		"/press-center/", 
 		Array(), 
 		Array(), 
 		"" 

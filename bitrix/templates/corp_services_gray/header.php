@@ -3,23 +3,32 @@
 IncludeTemplateLangFile(__FILE__);
 ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<html lang="ru">
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title><?$APPLICATION->ShowTitle()?></title>
-	<link rel="shortcut icon" type="image/x-icon" href="<?=SITE_TEMPLATE_PATH?>/favicon.ico" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="turbo-cache-control" content="no-cache"/>
 	
-	<link rel="stylesheet" type="text/css" href="<?=SITE_TEMPLATE_PATH?>/common.css" />
-	
+	<link href="<?=SITE_TEMPLATE_PATH?>/common.css" type="text/css" rel="stylesheet" />
+	<link href="<?=SITE_TEMPLATE_PATH?>/colors.css" type="text/css" rel="stylesheet" />
 	<?$APPLICATION->ShowHead();?>
-
-	<link rel="stylesheet" type="text/css" href="<?=SITE_TEMPLATE_PATH?>/colors.css" />
-		
+    <title>
+        Мероприятия — Правительство Ямало-Ненецкого автономного округа
+    </title>
+    <script src="vendor.js" async></script>
+    <script src="app.js" async></script>
+    <script src="/webpack-dev-server.js" async></script>
 </head>
-<body>
+<body data-controller="modal-window page-modal scrollbar visually-impaired-version report-error popup-link button-to-top" data-action="keyup@document->modal-window#onKeypress">
+<div id="panel"><?$APPLICATION->ShowPanel();?></div>
+<div class="page">
+    <div data-controller="gos-header-modal" class="gos-header">
+    </div>
+    <div data-controller="sticky-bar site-menu mobile-menu site-menu-modal" class="site-menu site-menu--sticky">
+        <div data-site-menu-target="overlay" class="site-menu__overlay"></div>
+        <div class="site-menu__wrapper">
 
-			<div id="panel"><?$APPLICATION->ShowPanel();?></div>
-
+            <nav class="site-menu__links-wrapper">
 <?$APPLICATION->IncludeComponent("bitrix:menu", "top", array(
 	"ROOT_MENU_TYPE" => "top",
 	"MENU_CACHE_TYPE" => "Y",
@@ -34,4 +43,7 @@ IncludeTemplateLangFile(__FILE__);
 	),
 	false
 );?>
-		
+</nav>
+        </div>
+    </div>
+    <section class="page-section events-page">
