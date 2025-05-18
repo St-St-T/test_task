@@ -55,6 +55,19 @@ $this->setFrameMode(true);
                                 <h2 class="news__title">
                                     <?echo $arItem["NAME"]?>
                                 </h2>
+<?if($arItem["DISPLAY_PROPERTIES"]["CODE"]["DISPLAY_VALUE"]!=""):?>
+<?foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
+<small class="themes news__publication-detail">
+<?if($arProperty["CODE"] == "THEMES"):?>
+			<?if(is_array($arProperty["DISPLAY_VALUE"])):?>
+				<?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
+			<?else:?>
+				<?=$arProperty["DISPLAY_VALUE"];?>
+			<?endif;?>
+			<?endif;?>
+
+</small>
+		<?endforeach;?><?endif;?>
                             </a>
 			<?else:?>
 				<h2 class="news__title"><?echo $arItem["NAME"]?></h2>
@@ -74,22 +87,20 @@ $this->setFrameMode(true);
                                 <?echo $arItem["DISPLAY_ACTIVE_FROM"]?>
                             </div>
 		<?endif?>
+<?if($arItem["DISPLAY_PROPERTIES"]["PLACE"]["DISPLAY_VALUE"]!="" && $arItem["DISPLAY_ACTIVE_FROM"]):?>
+	<div class="news__publication-detail">
+                      <svg class="icon" role="img">
+                      <use xlink:href="icons.svg#pin"/>
+                      </svg>
+		<?echo $arItem["DISPLAY_PROPERTIES"]["PLACE"]["DISPLAY_VALUE"];?>
+                      </div>
+<?endif?>
 		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
 			<div style="clear:both"></div>
 		<?endif?>
 		<?foreach($arItem["FIELDS"] as $code=>$value):?>
 			<small>
 			<?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?=$value;?>
-			</small><br />
-		<?endforeach;?>
-		<?foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-			<small>
-			<?=$arProperty["NAME"]?>:&nbsp;
-			<?if(is_array($arProperty["DISPLAY_VALUE"])):?>
-				<?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
-			<?else:?>
-				<?=$arProperty["DISPLAY_VALUE"];?>
-			<?endif?>
 			</small><br />
 		<?endforeach;?>
 	</article>

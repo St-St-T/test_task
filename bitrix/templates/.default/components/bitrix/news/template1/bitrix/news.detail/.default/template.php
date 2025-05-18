@@ -12,8 +12,31 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<div class="news-detail">
-	<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arResult["DETAIL_PICTURE"])):?>
+    <section class="article-section" data-controller="article-content">
+        <header class="article__header">
+
+
+            <?if($arParams["DISPLAY_NAME"]!="N" && $arResult["NAME"]):?>
+            <h1 class="article__title">
+                <?=$arResult["NAME"]?>
+            </h1>
+            <?endif;?>
+            <div class="article__header-info">
+                <div class="article__publication-info content-block">
+                    <?if($arParams["DISPLAY_DATE"]!="N" && $arResult["DISPLAY_ACTIVE_FROM"]):?>
+                    <time class="article__publication-date" datetime="2021-06-31">
+                        <?=$arResult["DISPLAY_ACTIVE_FROM"]?>
+                    </time>
+                    <?endif;?>
+					<?if($arResult["DISPLAY_PROPERTIES"]["PLACE"]["DISPLAY_VALUE"]!="N"):?>
+                    <div class="article__publication-place"><?=$arResult["DISPLAY_PROPERTIES"]["PLACE"]["DISPLAY_VALUE"];?></div>
+				<?endif;?>
+					</div>
+            </div>
+        </header>
+        <div class="article__content-wrapper">
+            <div class="article__content content-block">
+                <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arResult["DETAIL_PICTURE"])):?>
 		<img
 			class="detail_picture"
 			border="0"
@@ -24,72 +47,87 @@ $this->setFrameMode(true);
 			title="<?=$arResult["DETAIL_PICTURE"]["TITLE"]?>"
 			/>
 	<?endif?>
-	<?if($arParams["DISPLAY_DATE"]!="N" && $arResult["DISPLAY_ACTIVE_FROM"]):?>
-		<span class="news-date-time"><?=$arResult["DISPLAY_ACTIVE_FROM"]?></span>
-	<?endif;?>
-	<?if($arParams["DISPLAY_NAME"]!="N" && $arResult["NAME"]):?>
-		<h3><?=$arResult["NAME"]?></h3>
-	<?endif;?>
-	<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && ($arResult["FIELDS"]["PREVIEW_TEXT"] ?? '')):?>
-		<p><?=$arResult["FIELDS"]["PREVIEW_TEXT"];unset($arResult["FIELDS"]["PREVIEW_TEXT"]);?></p>
-	<?endif;?>
-	<?if($arResult["NAV_RESULT"]):?>
-		<?if($arParams["DISPLAY_TOP_PAGER"]):?><?=$arResult["NAV_STRING"]?><br /><?endif;?>
-		<?echo $arResult["NAV_TEXT"];?>
-		<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?><br /><?=$arResult["NAV_STRING"]?><?endif;?>
-	<?elseif($arResult["DETAIL_TEXT"] <> ''):?>
+                <p>
+                    <?if($arResult["DETAIL_TEXT"] <> ''):?>
 		<?echo $arResult["DETAIL_TEXT"];?>
 	<?else:?>
 		<?echo $arResult["PREVIEW_TEXT"];?>
 	<?endif?>
-	<div style="clear:both"></div>
-	<br />
-	<?foreach($arResult["FIELDS"] as $code=>$value):
-		if ('PREVIEW_PICTURE' == $code || 'DETAIL_PICTURE' == $code)
-		{
-			?><?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?
-			if (!empty($value) && is_array($value))
-			{
-				?><img border="0" src="<?=$value["SRC"]?>" width="<?=$value["WIDTH"]?>" height="<?=$value["HEIGHT"]?>"><?
-			}
-		}
-		else
-		{
-			?><?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?=$value;?><?
-		}
-		?><br />
-	<?endforeach;
-	foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="article-section">
+        <div class="article__content-wrapper article__controllers-wrapper">
+            <div class="article__publication-info">
+                <div class="article__publication-views">
+                    <svg class="icon" role="img">
+						<use xlink:href="/icons.svg#eye"/>
+                    </svg>
+					<?echo $arResult["DISPLAY_PROPERTIES"]["VIEWS"]["DISPLAY_VALUE"];?>
+                </div>
+            </div>
+            <div class="article__buttons-wrapper">
+                <div class="article__button-wrapper">
+                    <button class="article__controller-button" data-controller="wave">
+                        <svg class="icon" role="img">
+							<use xlink:href="/icons.svg#share"/>
+                        </svg>
+                        <span class="article__controller-button-text"
+                        >Поделиться материалом</span
+                        >
+                        <span class="article__controller-button-text--mobile"
+                        >Поделиться</span
+                        >
+                    </button>
+                </div>
+                <div class="article__button-wrapper">
+                    <button
+                            class="article__controller-button"
+                            type="button"
+                            data-controller="wave"
+                            data-modal-window-target="opener"
+                            data-modal-id="comment-form-modal"
+                            data-action="modal-window#onToggle"
+                    >
+                        <svg class="icon" role="img">
+							<use xlink:href="/icons.svg#comment"/>
+                        </svg>
+                        <span class="article__controller-button-text"
+                        >Оставить комментарий</span
+                        >
+                        <span class="article__controller-button-text--mobile"
+                        >Комментарий</span
+                        >
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="article__content-wrapper article__topics-wrapper">
+            <h3 class="article__topics-title">Темы</h3>
+            <ul class="article__topics">
+				<?if(is_array($arResult["DISPLAY_PROPERTIES"]["THEMES"]["DISPLAY_VALUE"])):?>
 
-		<?=$arProperty["NAME"]?>:&nbsp;
-		<?if(is_array($arProperty["DISPLAY_VALUE"])):?>
-			<?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
-		<?else:?>
-			<?=$arProperty["DISPLAY_VALUE"];?>
-		<?endif?>
-		<br />
-	<?endforeach;
-	if(array_key_exists("USE_SHARE", $arParams) && $arParams["USE_SHARE"] == "Y")
-	{
-		?>
-		<div class="news-detail-share">
-			<noindex>
-			<?
-			$APPLICATION->IncludeComponent("bitrix:main.share", "", array(
-					"HANDLERS" => $arParams["SHARE_HANDLERS"],
-					"PAGE_URL" => $arResult["~DETAIL_PAGE_URL"],
-					"PAGE_TITLE" => $arResult["~NAME"],
-					"SHORTEN_URL_LOGIN" => $arParams["SHARE_SHORTEN_URL_LOGIN"],
-					"SHORTEN_URL_KEY" => $arParams["SHARE_SHORTEN_URL_KEY"],
-					"HIDE" => $arParams["SHARE_HIDE"],
-				),
-				$component,
-				array("HIDE_ICONS" => "Y")
-			);
-			?>
-			</noindex>
-		</div>
-		<?
-	}
-	?>
-</div>
+			<?foreach($arResult["DISPLAY_PROPERTIES"]["THEMES"]["DISPLAY_VALUE"] as $pid=>$arProperty):?>
+<li class="article__topic-item">
+                    <a
+                            href="/"
+                            data-controller="wave"
+                            class="article__topic-link button button--secondary button--tiny"
+                    ><?echo $arProperty;?></a
+                    >
+                </li>
+<?endforeach;?>
+<?else:?>
+<li class="article__topic-item">
+                    <a
+                            href="/"
+                            data-controller="wave"
+                            class="article__topic-link button button--secondary button--tiny"
+                    ><?echo $arResult["DISPLAY_PROPERTIES"]["THEMES"]["DISPLAY_VALUE"];?></a
+                    >
+                </li>
+<?endif;?>
+            </ul>
+        </div>
+    </section>

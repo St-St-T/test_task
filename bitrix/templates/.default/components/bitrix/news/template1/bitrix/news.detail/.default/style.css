@@ -11,3 +11,11 @@ div.news-detail img.detail_picture
 {
 	color:#486DAA;
 }
+.article__topic-link
+{
+	margin-top: 25px;
+}
+.article-section
+{
+	width: 100%;
+}

@@ -8,13 +8,12 @@ IncludeTemplateLangFile(__FILE__);
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
     <meta name="turbo-cache-control" content="no-cache"/>
-	
+	<title>
+        Пресс центр
+    </title>
 	<link href="<?=SITE_TEMPLATE_PATH?>/common.css" type="text/css" rel="stylesheet" />
 	<link href="<?=SITE_TEMPLATE_PATH?>/colors.css" type="text/css" rel="stylesheet" />
 	<?$APPLICATION->ShowHead();?>
-    <title>
-        Мероприятия — Правительство Ямало-Ненецкого автономного округа
-    </title>
     <script src="vendor.js" async></script>
     <script src="app.js" async></script>
     <script src="/webpack-dev-server.js" async></script>

@@ -10,3 +10,16 @@ div.news-list img.preview_picture
 .news-date-time {
 	color:#486DAA;
 }
+.themes {
+	font-size: 5px;
+    color: #71717c;
+}
+.news__title {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    outline-color: transparent;
+}
+.news__title {
+    margin: 0;
+}
