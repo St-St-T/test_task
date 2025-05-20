@@ -7,10 +7,8 @@ IncludeTemplateLangFile(__FILE__);
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
+	<title><?php $APPLICATION->ShowTitle();?></title>
     <meta name="turbo-cache-control" content="no-cache"/>
-	<title>
-        Пресс центр
-    </title>
 	<link href="<?=SITE_TEMPLATE_PATH?>/common.css" type="text/css" rel="stylesheet" />
 	<link href="<?=SITE_TEMPLATE_PATH?>/colors.css" type="text/css" rel="stylesheet" />
 	<?$APPLICATION->ShowHead();?>
@@ -28,17 +26,22 @@ IncludeTemplateLangFile(__FILE__);
         <div class="site-menu__wrapper">
 
             <nav class="site-menu__links-wrapper">
-<?$APPLICATION->IncludeComponent("bitrix:menu", "top", array(
-	"ROOT_MENU_TYPE" => "top",
-	"MENU_CACHE_TYPE" => "Y",
-	"MENU_CACHE_TIME" => "36000000",
-	"MENU_CACHE_USE_GROUPS" => "Y",
-	"MENU_CACHE_GET_VARS" => array(
-	),
-	"MAX_LEVEL" => "1",
-	"CHILD_MENU_TYPE" => "left",
-	"USE_EXT" => "N",
-	"ALLOW_MULTI_SELECT" => "N"
+<?$APPLICATION->IncludeComponent(
+	"bitrix:menu", 
+	"top", 
+	array(
+		"ROOT_MENU_TYPE" => "left",
+		"MENU_CACHE_TYPE" => "Y",
+		"MENU_CACHE_TIME" => "36000000",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"MAX_LEVEL" => "2",
+		"CHILD_MENU_TYPE" => "left",
+		"USE_EXT" => "Y",
+		"ALLOW_MULTI_SELECT" => "N",
+		"COMPONENT_TEMPLATE" => "top",
+		"DELAY" => "N"
 	),
 	false
 );?>

@@ -4,7 +4,7 @@
 
 <ul class="site-menu__links" data-site-menu-target="menu">
 
-<li class="site-menu__link-item"><a class="site-menu__logotype" href="/">
+<li class="site-menu__link-item"><a class="site-menu__logotype" href="/?clear_cache=Y">
                 <svg class="site-menu__logotype-symbol-mobile" role="img">
 					<use xlink:href="/icons.svg#logotype-symbol-mobile"/>
                 </svg>
