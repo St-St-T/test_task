@@ -1,6 +1,0 @@
-2025-05-15 12:11:00 -  - exec CUpdateClient::GetUpdatesList
-2025-05-15 12:11:00 -  - exec CUpdateClient::CollectRequestData
-2025-05-15 12:11:00 -  - LICENSE_KEY=X&lang=ru&SUPD_VER=25.100.250&VERSION=25.100.300&TYPENC=D&SUPD_STS=1&SUPD_URS=0&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=bitrix.local&SERVER_NAME=&CHHB=bitrix.local&CSAB=127.127.126.54&SUID=3mwihjwdt34r0vi13dr1tk1awoxqsdfp&CANGZIP=Y&CLIENT_PHPVER=8.3.6&stable=Y&mbfo=0&NGINX=Y&SMD=N&rerere=Y&bitm_main=25.100.300&bitm_b24connector=24.0.0&bitm_bitrixcloud=24.100.0&bitm_blog=24.300.0&bitm_clouds=25.0.0&bitm_fileman=24.500.0&bitm_form=24.0.0&bitm_forum=25.100.0&bitm_highloadblock=24.100.0&bitm_iblock=24.300.0&bitm_landing=24.800.0&bitm_location=25.0.0&bitm_messageservice=24.900.0&bitm_mobileapp=24.200.0&bitm_perfmon=24.200.0&bitm_photogallery=25.0.0&bitm_rest=25.100.200&bitm_search=25.0.0&bitm_security=24.0.100&bitm_seo=24.600.100&bitm_socialservices=24.100.100&bitm_subscribe=24.0.0&bitm_translate=24.100.0&bitm_ui=25.0.0&bitm_vote=24.0.100&bitl_en=&bitl_ru=&SUPD_SRS=RU&SUPD_CMP=N&SALE_15=Y&LICENSE_SIGNED=%7Enew_license18_0_sign-Y
-2025-05-15 12:11:00 -  - exec CUpdateClient::GetHTTPPage
-2025-05-15 12:11:01 -  - TIME GetUpdatesList(request) 0.57 sec
-2025-05-15 12:11:01 -  - exec CUpdateClient::ParseServerData
